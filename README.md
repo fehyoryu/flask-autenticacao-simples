@@ -14,3 +14,12 @@ flask shell
 ```
 
 com isso, foi criado o database na pasta **instance**
+
+Nesse commit de teste de login, foi usado novamente o flask shell para fazer o cadastro de um usuário no banco de dados SQLite e testar a rota /login
+
+```
+user = User(username="admin", password="123456")
+db.session.add(user)
+db.session.commit()
+exit()
+```
