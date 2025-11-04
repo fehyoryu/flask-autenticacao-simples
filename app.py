@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 # from database import db
 from models.user import User
 from database import db
-from flask_login import LoginManager, login_user, current_user
+from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 
 app = Flask(__name__)
 # secret key: por ser teste, deixar algo simples
@@ -37,6 +37,13 @@ def login():
             return jsonify({"error": "Usuário não encontrado"}),404
 
     return jsonify({"message": "Credenciais inválidas"}), 400
+
+@app.route("/logout", methods=["GET"])
+# rota utilizada apenas enquanto tiver um usuário autenticado
+@login_required
+def logout():
+    logout_user()
+    return jsonify({"message": "Logout realizado com sucesso"})
 
 
 
