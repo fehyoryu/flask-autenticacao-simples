@@ -23,3 +23,6 @@ db.session.add(user)
 db.session.commit()
 exit()
 ```
+
+No teste de autenticação - feita com sucesso - temos a propriedade **Set-cookie** no postman.  
+Esse cookie é o que identifica a sessão ativa do usuário logado
